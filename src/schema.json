@@ -1,15 +1,43 @@
 {
-  "$schema": "http://json-schema.org/schema",
+  "title": "Ng CLI tsc builder",
+  "description": "Angular CLI builder using only basic tsc compiler",
   "type": "object",
   "properties": {
-    "command": {
-      "type": "string"
+    "tsConfig": {
+      "type": "string",
+      "description": "The name of the Typescript configuration file."
     },
-    "args": {
+    "outputPath": {
+      "type": "string",
+      "description": "The output path of the generated files."
+    },
+    "rootDir": {
+      "type": "string",
+      "description": "The output path of the generated files."
+    },
+    "sourceMap": {
+      "type": "boolean",
+      "description": "Produce source maps.",
+      "default": true
+    },
+    "fileReplacements": {
+      "description": "Replace files with other files in the build.",
       "type": "array",
       "items": {
-        "type": "string"
-      }
+        "type": "object",
+        "properties": {
+          "replace": {
+            "type": "string"
+          },
+          "with": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": ["replace", "with"]
+      },
+      "default": []
     }
-  }
+  },
+  "required": ["tsConfig", "outputPath"]
 }
