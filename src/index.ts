@@ -10,12 +10,12 @@ interface Options extends JsonObject {
 export default createBuilder<Options>((options, context) => {
   return new Promise<BuilderOutput>((resolve, reject) => {
     context.reportStatus(`Executing tsc build --${options.tsConfig}...`);
-    const child = childProcess.spawn(`npx tsc --project ${options.tsConfig}`);
+    const child = childProcess.spawn(`npx tsc --project ${options.tsConfig}`, [], { shell: true });
 
     child.stdout.on("data", (data) => {
       context.logger.info(data.toString());
     });
-    child.stderr.on("data", (data) => {
+    child.stderr.on("error", (data) => {
       context.logger.error(data.toString());
       reject();
     });
