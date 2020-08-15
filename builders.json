@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "build": {
+      "implementation": "./src",
+      "schema": "./src/schema.json",
+      "description": "Build your project using the TS compiler"
+    }
+  }
+}

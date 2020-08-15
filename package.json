@@ -1,46 +1,38 @@
 {
-  "name": "ng-cli-tsc-builder",
-  "version": "0.0.0",
+  "name": "@pmachaux/ng-cli-tsc-builder",
+  "version": "0.0.1",
+  "description": "Angular cli builder using only tsc",
+  "main": "dist/index.js",
+  "builders": "builders.json",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "tsc"
   },
-  "private": true,
-  "dependencies": {
-    "@angular/animations": "~9.1.0",
-    "@angular/common": "~9.1.0",
-    "@angular/compiler": "~9.1.0",
-    "@angular/core": "~9.1.0",
-    "@angular/forms": "~9.1.0",
-    "@angular/platform-browser": "~9.1.0",
-    "@angular/platform-browser-dynamic": "~9.1.0",
-    "@angular/router": "~9.1.0",
-    "rxjs": "~6.5.4",
-    "tslib": "^1.10.0",
-    "zone.js": "~0.10.2"
+  "ngPackage": {
+    "lib": {
+      "entryFile": "src/index.ts"
+    }
   },
+  "keywords": [],
+  "author": "Pierre Machaux",
+  "license": "ISC",
   "devDependencies": {
-    "@angular/cli": "~9.1.0",
-    "@angular/compiler-cli": "~9.1.0",
-    "@angular/language-service": "~9.1.0",
-    "@types/node": "^12.11.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
-    "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.4.1",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~3.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "~5.4.3",
-    "ts-node": "~8.3.0",
-    "tslint": "~6.1.0",
-    "typescript": "~3.8.3"
-  }
+    "@types/jasmine": "^3.3.12",
+    "@types/node": "^11.13.4",
+    "cpx": "^1.5.0",
+    "jasmine": "^3.4.0",
+    "jasmine-node": "^1.16.2",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.3"
+  },
+  "dependencies": {
+    "@angular-devkit/architect": "0.901.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmachaux/ng-cli-tsc-builder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pmachaux/ng-cli-tsc-builder/issues"
+  },
+  "homepage": "https://github.com/pmachaux/ng-cli-tsc-builder#readme"
 }
