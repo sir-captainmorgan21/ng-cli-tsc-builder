@@ -1,16 +1,14 @@
 {
   "name": "@pmachaux/ng-cli-tsc-builder",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "Angular cli builder using only tsc",
   "main": "dist/index.js",
   "builders": "builders.json",
   "scripts": {
-    "build": "tsc"
-  },
-  "ngPackage": {
-    "lib": {
-      "entryFile": "src/index.ts"
-    }
+    "clean": "rimraf dist",
+    "copy": "cpx src/**/*.json dist && cpx builders.json dist && cpx package.json dist",
+    "build": "npm run clean && tsc && npm run copy",
+    "publish": "cd dist && npm publish --access public"
   },
   "keywords": [],
   "author": "Pierre Machaux",
@@ -21,6 +19,7 @@
     "cpx": "^1.5.0",
     "jasmine": "^3.4.0",
     "jasmine-node": "^1.16.2",
+    "rimraf": "^3.0.2",
     "ts-node": "^8.1.0",
     "typescript": "^3.4.3"
   },
