@@ -38,14 +38,12 @@ const fileReplacementsBuilder = (
     const filesWrites = fileReplacements.map((r) => {
       return new Promise((fResolve, fReject) => {
         const withPath = distPath + r.with.replace(rootDir, "").replace(".ts", ".js");
-        context.logger.info(JSON.stringify(withPath));
         fs.readFile(withPath, (errRead, data) => {
           if (errRead) {
             context.logger.error(JSON.stringify(errRead));
             fReject();
           }
           const replacePath = distPath + r.replace.replace(rootDir, "").replace(".ts", ".js");
-          context.logger.info(JSON.stringify(replacePath));
           fs.writeFile(replacePath, data, (errWrite) => {
             if (errWrite) {
               context.logger.error(JSON.stringify(errWrite));

@@ -7,6 +7,12 @@ A simple Angular cli builder using only tsc and file replacement.
 When you have a project you want to build with the Angular CLI without webpack.
 We use only the tsc compiler.
 
+## Install
+
+```
+npm i -D @pmachaux/ng-cli-tsc-builder
+```
+
 ## Accepted options:
 
     - tsConfig: Path to tsconfig file used for the compilation
@@ -22,7 +28,7 @@ We use only the tsc compiler.
     - Replace files if fileReplacements is provided
     - Clean all unused environment files
 
-## Example of usage (within Nx monorepo)
+## Example of usage in Angular.json (within Nx monorepo)
 
 ```
 "my-app": {
