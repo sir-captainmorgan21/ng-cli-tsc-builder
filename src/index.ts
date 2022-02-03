@@ -90,14 +90,14 @@ const cleanDistFolder = (outDirFolder: string, context: any): Promise<number> =>
 };
 
 const copyPackageFiles = async (distFolder: string, packageFolder: string, context: any) => {
-  await fs.rename(`${packageFolder}/package.json`, `${distFolder}/package.json`, (error) => {
+  await fs.copyFile(`${packageFolder}/package.json`, `${distFolder}/package.json`, (error) => {
     if (error) {
       context.logger.error(error);
     } else {
       context.reportStatus('Copied package.json.');
     }
   });
-  await fs.rename(`${packageFolder}/README.md`, `${distFolder}/README.md`, (error) => {
+  await fs.copyFile(`${packageFolder}/README.md`, `${distFolder}/README.md`, (error) => {
     if (error) {
       context.logger.error(error);
     } else {

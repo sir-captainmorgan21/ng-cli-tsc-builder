@@ -1,6 +1,6 @@
 {
-  "name": "@pmachaux/ng-cli-tsc-builder",
-  "version": "1.1.0",
+  "name": "@cptnmorgan/ng-cli-tsc-builder",
+  "version": "1.0.2",
   "description": "Angular cli builder using only tsc",
   "main": "dist/index.js",
   "builders": "builders.json",
@@ -25,13 +25,5 @@
   },
   "dependencies": {
     "@angular-devkit/architect": "0.901.7"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pmachaux/ng-cli-tsc-builder.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pmachaux/ng-cli-tsc-builder/issues"
-  },
-  "homepage": "https://github.com/pmachaux/ng-cli-tsc-builder#readme"
+  }
 }

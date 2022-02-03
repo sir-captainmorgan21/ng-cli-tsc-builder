@@ -40,7 +40,7 @@
     },
     "packageDir": {
       "description": "If provided Will copy over package.json and README.md to dist preparation for publishing to npm",
-      "type": "boolean",
+      "type": "string",
       "default": "false"
     }
   },

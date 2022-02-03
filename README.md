@@ -1,6 +1,6 @@
 # Ng Cli Tsc Builder
 
-A simple Angular cli builder using only tsc and file replacement.
+A simple Angular cli builder using only tsc and file replacement. (FORK of @pmachaux/ng-cli-tsc-builder)
 
 ## Use case
 
@@ -10,7 +10,7 @@ We use only the tsc compiler.
 ## Install
 
 ```
-npm i -D @pmachaux/ng-cli-tsc-builder
+npm i -D @cptnmorgan/ng-cli-tsc-builder
 ```
 
 ## Accepted options:
@@ -40,7 +40,7 @@ npm i -D @pmachaux/ng-cli-tsc-builder
       "schematics": {},
       "architect": {
         "build": {
-          "builder": "@pmachaux/ng-cli-tsc-builder:build",
+          "builder": "@cptnmorgan/ng-cli-tsc-builder:build",
           "options": {
             "outputPath": "dist/apps/mlk/my-app",
             "tsConfig": "apps/my-app/tsconfig.app.json",
