@@ -16,7 +16,7 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strictNullChecks": true,
-    "types": ["node", "jasmine"]
+    "types": ["node"]
   },
   "files": ["src/index.ts"],
   "exclude": ["src/**/*.spec.ts"]
