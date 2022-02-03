@@ -1,6 +1,6 @@
 {
   "name": "@pmachaux/ng-cli-tsc-builder",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Angular cli builder using only tsc",
   "main": "dist/index.js",
   "builders": "builders.json",

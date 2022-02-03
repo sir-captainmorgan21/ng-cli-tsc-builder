@@ -20,6 +20,7 @@ npm i -D @pmachaux/ng-cli-tsc-builder
     - rootDir: See --rootDir in https://www.typescriptlang.org/docs/handbook/compiler-options.html
     - sourceMap: Include sourceMap
     - fileReplacements: Replace file by another one (same as usual)
+    - packageDir: If provided Will copy over package.json and README.md to dist preparation for publishing to npm
 
 ## Process
 
@@ -44,7 +45,8 @@ npm i -D @pmachaux/ng-cli-tsc-builder
             "outputPath": "dist/apps/mlk/my-app",
             "tsConfig": "apps/my-app/tsconfig.app.json",
             "rootDir": "apps/my-app/src",
-            "sourceMap": true
+            "sourceMap": true,
+            "packageDir": "apps/my-app" // Path to where you package.json and README.md live
           },
           "configurations": {
             "production": {

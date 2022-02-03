@@ -37,6 +37,11 @@
         "required": ["replace", "with"]
       },
       "default": []
+    },
+    "packageDir": {
+      "description": "If provided Will copy over package.json and README.md to dist preparation for publishing to npm",
+      "type": "boolean",
+      "default": "false"
     }
   },
   "required": ["tsConfig", "outputPath"]

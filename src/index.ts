@@ -54,7 +54,7 @@ const fileReplacementsBuilder = (
                 context.logger.error(JSON.stringify(errClean));
                 fReject();
               }
-              fResolve();
+              fResolve(null);
             });
           });
         });
@@ -89,6 +89,23 @@ const cleanDistFolder = (outDirFolder: string, context: any): Promise<number> =>
   });
 };
 
+const copyPackageFiles = async (distFolder: string, packageFolder: string, context: any) => {
+  await fs.rename(`${packageFolder}/package.json`, `${distFolder}/package.json`, (error) => {
+    if (error) {
+      context.logger.error(error);
+    } else {
+      context.reportStatus('Copied package.json.');
+    }
+  });
+  await fs.rename(`${packageFolder}/README.md`, `${distFolder}/README.md`, (error) => {
+    if (error) {
+      context.logger.error(error);
+    } else {
+      context.reportStatus('Copied README.md.');
+    }
+  });
+}
+
 export default createBuilder<Options>((options, context) => {
   return new Promise<BuilderOutput>(async (resolve, reject) => {
     context.reportStatus(`Executing tsc build --${options.tsConfig}...`);
@@ -101,6 +118,7 @@ export default createBuilder<Options>((options, context) => {
     const rootDir = options.rootDir ? `--rootDir ${options.rootDir}` : "";
     const sourceMap = `--sourceMap ${!!options.sourceMap}`;
     const fileReplacements = options.fileReplacements;
+    const packageFolder = options.packageDir ? join(process.cwd(), options.packageDir as string) : null;
 
     const cleanDistFolderCode = await cleanDistFolder(options.outputPath ? distFolder : "", context);
     if (cleanDistFolderCode) {
@@ -117,6 +135,9 @@ export default createBuilder<Options>((options, context) => {
     });
     context.reportStatus(`Done.`);
     child.on("close", async (code) => {
+      if (packageFolder) {
+        await copyPackageFiles(distFolder, packageFolder, context);
+      }
       if (!fileReplacements) {
         resolve({ success: code === 0 });
       } else {
